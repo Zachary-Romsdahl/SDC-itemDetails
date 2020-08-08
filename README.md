@@ -1,1 +1,1 @@
-# ValeriiaTen-Etsy-
+Item Details Module

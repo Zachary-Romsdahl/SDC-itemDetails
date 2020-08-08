@@ -1,0 +1,28 @@
+{
+  "name": "item-details-valeriiaten-etsy",
+  "version": "1.0.0",
+  "description": "FEC",
+  "main": "index.js",
+  "scripts": {
+    "react-dev": "webpack -d --watch",
+    "server-dev": "nodemon server/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FEC-Linka/Item-Details-ValeriiaTen-Etsy.git"
+  },
+  "author": "ValeriiaTen",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/FEC-Linka/Item-Details-ValeriiaTen-Etsy/issues"
+  },
+  "homepage": "https://github.com/FEC-Linka/Item-Details-ValeriiaTen-Etsy#readme",
+  "devDependencies": {
+    "@babel/core": "^7.11.1",
+    "@babel/preset-env": "^7.11.0",
+    "@babel/preset-react": "^7.10.4",
+    "babel-loader": "^8.1.0",
+    "webpack": "^4.44.1",
+    "webpack-cli": "^3.3.12"
+  }
+}
