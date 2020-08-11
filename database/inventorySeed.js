@@ -1,5 +1,5 @@
 [{
-  " productId": 1,
+  "productId": 1,
   "itemPopularity": "Bestseller",
   "itemPrice": 53.50,
   "itemDiscount": 0,
