@@ -1,0 +1,10 @@
+{
+  "productId": 15,
+  "itemPopularity": "Bestseller",
+  "itemPrice": 70,
+  "itemDiscount": 0.5,
+  "quantity": 55,
+  "availability": "In stock",
+  "isFreeShipping": false,
+  "costOfDelivery": 20
+}
