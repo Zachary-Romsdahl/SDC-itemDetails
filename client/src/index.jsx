@@ -8,7 +8,7 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>Hi</div>
+      <div>If you see this text, it means that the connection was successful</div>
     )
   }
 }

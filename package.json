@@ -5,9 +5,7 @@
   "main": "index.js",
   "scripts": {
     "react-dev": "webpack -d --watch",
-    "server-dev": "nodemon server/index.js",
-    "seedDescription": node filename,
-    "seedProduct": node filename
+    "server-dev": "nodemon server/index.js"
   },
   "repository": {
     "type": "git",
