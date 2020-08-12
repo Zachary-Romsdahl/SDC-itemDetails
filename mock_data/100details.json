@@ -1,7 +1,7 @@
 [
   {
     "productId": 1,
-    "itemName": `Curabitur at ipsum ac tellus semper interdum. Mauris ullamcorper purus sit amet nulla. Quisque arcu libero, rutrum ac, lobortis vel, dapibus at, diam.`,
+    "itemName": "Nullam sit amet turpis elementum ligula vehicula consequat. Morbi a ipsum. Integer a nibh.",
     "options": {
       "size": [
         "Small",
