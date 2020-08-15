@@ -5,11 +5,11 @@ let app = express();
 
 
 app.use(express.static(__dirname + '/../client/dist'));
-// app.use(bodyParser.urlencoded({ extended: true }));
-// app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json())
 
 
-app.get('/', function (req, res) {
+app.get('/itemDetails/:productId', function (req, res) {
   res.send("API is working properly");
 });
 // Step 1 - (Heroku) use avaliable port to run my aplication
