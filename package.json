@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "react-dev": "webpack -d --watch",
-    "server-dev": "nodemon server/index.js"
+    "server-dev": "nodemon server/index.js",
+    "db:setup": "node database/index.js"
   },
   "repository": {
     "type": "git",
@@ -22,7 +23,22 @@
     "@babel/preset-env": "^7.11.0",
     "@babel/preset-react": "^7.10.4",
     "babel-loader": "^8.1.0",
+    "eslint": "^7.7.0",
+    "eslint-config-airbnb": "^18.2.0",
+    "eslint-plugin-import": "^2.22.0",
+    "eslint-plugin-jsx-a11y": "^6.3.1",
+    "eslint-plugin-react": "^7.20.6",
+    "eslint-plugin-react-hooks": "^4.0.8",
+    "faker": "^4.1.0",
     "webpack": "^4.44.1",
     "webpack-cli": "^3.3.12"
+  },
+  "dependencies": {
+    "axios": "^0.19.2",
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "mongoose": "^5.10.0",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
   }
 }
