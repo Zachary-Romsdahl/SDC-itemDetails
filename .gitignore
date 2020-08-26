@@ -2,3 +2,4 @@ node_modules
 .eslintignore
 controller
 client
+README.md
