@@ -24,12 +24,13 @@ app.get('/itemDetails/:productId', (req, res) => {
     if (err) {
       res.status(500).send(err);
     } else {
+      // console.log('DATA FROm DB', result);
       res.send(result);
     }
   });
 });
 
-app.get('/itemDetails', (req, res) => {
+app.get('/info', (req, res) => {
   // This method returns the value of param id when present
   Promise.all([
     axios.get('https://ttreitshop.s3-us-west-2.amazonaws.com/item1.json'),
@@ -43,7 +44,7 @@ app.get('/itemDetails', (req, res) => {
         rating: reviews.data.rating,
       };
       // console.log('DATA from console server', shop.data);
-      // console.log('____________________', data);
+      // console.log('____________________', data
       res.send(data);
     });
 });

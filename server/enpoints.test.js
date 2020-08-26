@@ -3,8 +3,8 @@ const supertest = require('supertest');
 const app = require('./index.js'); // Link to your server file
 const request = supertest(app);
 
-describe('Gets the test endpoint to /itemDetails/:productId', () => {
-  test('It should response the GET method with item name', () => {
+describe('Endpoint test to /itemDetails/:productId', () => {
+  it('should  return an object with the correct item name', () => {
     // Sends GET Request to /test endpoint
     request.get('/itemDetails/1')
       .then((res) => {
