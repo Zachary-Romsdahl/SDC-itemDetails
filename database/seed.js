@@ -13,7 +13,7 @@ function productDetails() {
   for (let i = 1; i < 101; i++) {
     data.push({
       productId: i,
-      itemName: faker.commerce.productName(),
+      itemName: faker.lorem.sentence(),
       options: {
         size: ['Small', 'Large', 'Medium'],
         color: colorLimit(),
