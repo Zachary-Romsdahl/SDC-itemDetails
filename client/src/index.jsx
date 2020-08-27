@@ -4,7 +4,8 @@ import styled from 'styled-components';
 import Page from './components/Page.jsx';
 
 const Wrapper = styled.div`
-  width: 450px;
+  padding: 0.4em 1em 0.4em 1em;
+  width: 300px;
   color: palevioletred;
   font-size: 1em;
   border: 2px solid palevioletred;
