@@ -6,7 +6,7 @@
   "scripts": {
     "react-dev": "webpack -d --watch",
     "server-dev": "nodemon server/start.js",
-    "db:setup": "node database/index.js",
+    "db:setup": "node database/seed.js",
     "test": "jest",
     "test:watch": "jest --watch"
   },
@@ -44,7 +44,7 @@
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "styled-components": "^5.1.1",
+    "styled-dropdown-component": "^4.0.0",
     "webpack": "^4.44.1",
     "webpack-cli": "^3.3.12"
   }

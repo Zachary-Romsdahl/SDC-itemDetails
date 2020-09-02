@@ -1,6 +1,5 @@
 const mongoose = require('mongoose');
 const db = require('./index.js');
-const { productDetails } = require('./seed.js');
 
 const productSchema = mongoose.Schema({
   // TODO: your schema here!
@@ -13,9 +12,4 @@ const productSchema = mongoose.Schema({
 
 const Description = mongoose.model('Description', productSchema);
 
-Description.deleteMany({}).then(() => {
-  Description.create(productDetails())
-    .catch((err) => { console.log('Catch ERROR', err); });
-});
-
-module.exports = { Description: Description };
+module.exports = Description;
