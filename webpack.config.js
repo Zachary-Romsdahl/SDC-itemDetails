@@ -1,5 +1,10 @@
+const path = require('path');
+
 module.exports = {
-  entry: __dirname + '/client/src/index.jsx',
+  // eslint - disable no - path - concat
+  // eslint-disable prefer-template _
+  entry: path.join(__dirname, './client/src/index.jsx'),
+  // target: 'node',
   module: {
     rules: [
       {
@@ -8,14 +13,16 @@ module.exports = {
         use: {
           loader: 'babel-loader',
           options: {
-            presets: ['@babel/preset-react', '@babel/preset-env']
-          }
-        }
-      }
-    ]
+            presets: ['@babel/preset-react', '@babel/preset-env'],
+          },
+        },
+      },
+    ],
   },
-   output: {
+  output: {
     filename: 'bundle.js',
-    path: __dirname + '/client/dist'
-  }
+    // eslint-disable no-path-concat
+    //  eslint - disable prefer - template
+    path: path.join(__dirname, './client/dist'),
+  },
 };
