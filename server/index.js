@@ -4,6 +4,7 @@ const app = express();
 const path = require('path');
 const bodyParser = require('body-parser');
 const axios = require('axios');
+const cors = require('cors');
 
 // const descriptionController = require('./controller/descriptionController.js');
 const Description = require('../database/serviceDescription.js');
@@ -12,10 +13,7 @@ const Description = require('../database/serviceDescription.js');
 app.use(express.static(path.join(__dirname, '../client/dist')));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-app.use((req, res, next) => {
-  res.setHeader('Access-Control-Allow-Origin', 'http://localhost:5000');
-  next();
-});
+app.use(cors());
 
 app.get('/itemDetails/:productId', (req, res) => {
   // This method returns the value of param id when present
@@ -35,7 +33,7 @@ app.get('/info', (req, res) => {
   Promise.all([
     axios.get('https://ttreitshop.s3-us-west-2.amazonaws.com/item1.json'),
     axios.get('https://rvrita-fec-reviews.s3.us-west-1.amazonaws.com/rvrita-fec-reviews.json'),
-    axios.get('https://valeriia-ten-inventory.s3.us-east-2.amazonaws.com/inventory1.json')
+    axios.get('https://valeriia-ten-inventory.s3.us-east-2.amazonaws.com/inventory1.json'),
   ])
     .then(([shop, reviews, inventory]) => {
       const data = {
