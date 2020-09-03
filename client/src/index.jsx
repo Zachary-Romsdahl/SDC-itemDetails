@@ -24,13 +24,9 @@ const productId = () => {
   return productId;
 };
 
-<<<<<<< HEAD
-ReactDOM.render(<App />, document.getElementById('app'));
-=======
 ReactDOM.render(
   <Wrapper>
     <Page id={productId()} />
   </Wrapper>,
   document.getElementById('app')
 );
->>>>>>> 4e5c6e8fc88569e1c56c42f14497ec2b2ca11311

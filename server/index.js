@@ -51,13 +51,4 @@ app.get('/info', (req, res) => {
     });
 });
 
-<<<<<<< HEAD
-app.listen(port, function () {
-  console.log(`listening on port http://localhost:${port}`);
-=======
-app.get('*', (req, res) => {
-  res.sendFile(path.resolve(__dirname, '../client/dist/index.html'));
->>>>>>> 4e5c6e8fc88569e1c56c42f14497ec2b2ca11311
-});
-
 module.exports = app;
