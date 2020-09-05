@@ -1,5 +1,3 @@
-const Description = require('./serviceDescription.js');
-const db = require('./index.js');
 const faker = require('faker');
 
 const colorLimit = () => {
@@ -20,18 +18,14 @@ function productDetails() {
         size: ['Small', 'Large', 'Medium'],
         color: colorLimit(),
       },
-      materials: faker.lorem.sentences(5).toLowerCase(),
-      itemDescription: faker.lorem.sentences(20),
+      materials: faker.lorem.sentence(),
+      itemDescription: faker.lorem.sentences(8),
     });
   }
   return data;
 }
+// console.log('test', seed());
 
-Description.deleteMany({}).then(() => {
-  Description.create(productDetails())
-    .catch((err) => { console.log('Catch ERROR', err); });
-});
-
-
+module.exports.productDetails = productDetails;
 
 
