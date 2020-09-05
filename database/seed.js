@@ -29,7 +29,7 @@ function productDetails() {
 
 Description.deleteMany({}).then(() => {
   Description.create(productDetails())
-    .catch((err) => { console.log('Catch error:', err); });
+    .catch((err) => { console.log('Catch ERROR', err); });
 });
 
 
