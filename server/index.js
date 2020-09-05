@@ -1,19 +1,19 @@
 const express = require('express');
-
-const app = express();
+require('dotenv').config();
 const path = require('path');
 const bodyParser = require('body-parser');
 const axios = require('axios');
+const app = express();
 const cors = require('cors');
 
 // const descriptionController = require('./controller/descriptionController.js');
 const Description = require('../database/serviceDescription.js');
 /* eslint-disable no-path-concat */
 /* eslint-disable prefer-template */
+app.use(cors());
 app.use(express.static(path.join(__dirname, '../client/dist')));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-app.use(cors());
 
 app.get('/itemDetails/:productId', (req, res) => {
   // This method returns the value of param id when present
@@ -48,7 +48,9 @@ app.get('/info', (req, res) => {
       res.send(data);
     });
 });
-
+// app.get('/:productId', (req, res) => {
+//   res.sendFile(path.join(__dirname + '../client/dist/index.html'));
+// });
 app.get('*', (req, res) => {
   res.sendFile(path.resolve(__dirname, '../client/dist/index.html'));
 });
