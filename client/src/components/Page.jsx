@@ -39,7 +39,7 @@ export default class Page extends React.Component {
 
   componentDidMount() {
     this.getDataFromDB(this.props.id);
-    this.getDataFromApi(this.props.id);
+    this.getDataFromApi();
   }
 
   getDataFromDB(productId) {
@@ -61,8 +61,6 @@ export default class Page extends React.Component {
   }
 
   getDataFromApi() {
-    const pathname = window.location.pathname;
-    const productId = pathname.substring(pathname.lastIndexOf('/') + 1) || 3;
     const { apiData } = this.state;
     $.ajax({
       url: '/info',
