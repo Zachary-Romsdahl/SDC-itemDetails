@@ -28,5 +28,5 @@ ReactDOM.render(
   <Wrapper>
     <Page id={productId()} />
   </Wrapper>,
-  document.getElementById('app')
+  document.getElementById('details')
 );
