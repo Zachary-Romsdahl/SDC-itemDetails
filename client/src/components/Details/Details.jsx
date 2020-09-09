@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import ShowMoreText from 'react-show-more-text';
+import { Wrapper, Title, Text } from './Material.style.jsx';
 
 const Wrapper = styled.div`
   width: 100%;

@@ -4,26 +4,9 @@ import Details from '../Details/Details.jsx';
 import Dropdown1 from '../Dropdown1/Dropdown1.jsx';
 import Material from '../Material/Material.jsx';
 import NameOfItem from '../NameOfItem/NameOfItem.jsx';
+import { Wrapper, Title, SalesTitle } from './Material.style.jsx';
 import $ from 'jquery';
 
-const Wrapper = styled.div`
-  display: inline-block;
-`;
-const Title = styled.h1`
-  font-family: 'Graphik Webfont', -apple-system, BlinkMacSystemFont, 'Roboto',
-    'Droid Sans', 'Segoe UI', 'Helvetica', Arial, sans-serif;
-  font-weight: 300;
-  font-size: 15px;
-  line-height: 28px;
-  color: black;
-`;
-
-const SalesTitle = styled.h2`
-  font-family: -apple-system, BlinkMacSystemFont, 'Roboto', 'Droid Sans',
-    'Segoe UI', 'Helvetica', Arial, sans-serif;
-  font-size: 14px;
-  line-height: 1.4;
-`;
 export default class Page extends React.Component {
   constructor(props) {
     super(props);
