@@ -1,11 +1,9 @@
 import React from 'react';
-import ReactDom from 'react-dom';
 import styled from 'styled-components';
-import Details from './Details.jsx';
-import Dropdown1 from './Dropdown1.jsx';
-import Stars from './Stars.jsx';
-import Material from './Material.jsx';
-import NameOfItem from './NameOfItem.jsx';
+import Details from '../Details/Details.jsx';
+import Dropdown1 from '../Dropdown1/Dropdown1.jsx';
+import Material from '../Material/Material.jsx';
+import NameOfItem from '../NameOfItem/NameOfItem.jsx';
 import $ from 'jquery';
 
 const Wrapper = styled.div`
@@ -49,7 +47,7 @@ export default class Page extends React.Component {
       method: 'GET',
       contentType: 'application/json',
       success: (productData) => {
-        console.log('res data ----->', productData);
+        console.log('Product data', productData);
         this.setState({
           product: productData,
         });
@@ -67,6 +65,7 @@ export default class Page extends React.Component {
       method: 'GET',
       contentType: 'application/json',
       success: (result) => {
+        console.log('TEEEEST ------>', result);
         var arrayData = [];
         arrayData.push(result);
         this.setState({
@@ -81,7 +80,7 @@ export default class Page extends React.Component {
 
   render() {
     const { product, apiData } = this.state;
-    // console.log('HERE ----->', product);
+    console.log('Data ----->', product);
     const sellerName = apiData.map((object) => {
       return object.seller_name;
     });

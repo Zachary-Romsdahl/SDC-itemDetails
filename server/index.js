@@ -3,6 +3,7 @@ require('dotenv').config();
 const path = require('path');
 const bodyParser = require('body-parser');
 const axios = require('axios');
+
 const app = express();
 const cors = require('cors');
 
@@ -52,6 +53,5 @@ app.get('/info', (req, res) => {
 app.get('*', (req, res) => {
   res.sendFile(path.resolve(__dirname, '../client/dist/index.html'));
 });
-
 
 module.exports = app;

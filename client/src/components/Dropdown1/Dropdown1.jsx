@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import Dropdown2 from './Dropdown2.jsx';
+import Dropdown2 from '../Dropdown2/Dropdown2.jsx';
 
 const Wrapper = styled('div')`
   padding-top: 2px;
