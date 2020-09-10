@@ -4,7 +4,7 @@ import Details from '../Details/Details.jsx';
 import Dropdown1 from '../Dropdown1/Dropdown1.jsx';
 import Material from '../Material/Material.jsx';
 import NameOfItem from '../NameOfItem/NameOfItem.jsx';
-import { Wrapper, Title, SalesTitle } from './Material.style.jsx';
+import { Wrapper, Title, SalesTitle } from './Page.style.jsx';
 import $ from 'jquery';
 
 export default class Page extends React.Component {
@@ -48,7 +48,7 @@ export default class Page extends React.Component {
       method: 'GET',
       contentType: 'application/json',
       success: (result) => {
-        console.log('TEEEEST ------>', result);
+        // console.log('TEEEEST ------>', result);
         var arrayData = [];
         arrayData.push(result);
         this.setState({
@@ -63,7 +63,7 @@ export default class Page extends React.Component {
 
   render() {
     const { product, apiData } = this.state;
-    console.log('Data ----->', product);
+    // console.log('Data ----->', product);
     const sellerName = apiData.map((object) => {
       return object.seller_name;
     });

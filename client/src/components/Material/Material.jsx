@@ -9,7 +9,7 @@ export default class Material extends React.Component {
   }
 
   render() {
-    console.log('TEST', this.props.product);
+    // console.log('TEST', this.props.product);
     const text = this.props.product.map((object) => object.materials);
     return (
       <Wrapper>

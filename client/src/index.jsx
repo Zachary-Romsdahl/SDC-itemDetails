@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import Page from './components/Page/Page.jsx';
 
 const Wrapper = styled.div`
-  padding: 0.4em 1em 0.4em 1em;
+  padding: 0px 30px 0px 0px;
   width: 450px;
   font-size: 1em;
   border: none;
