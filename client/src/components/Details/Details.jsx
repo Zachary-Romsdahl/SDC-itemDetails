@@ -6,7 +6,6 @@ import { Wrapper, Title, Text } from './Details.style.jsx';
 
 export default class Details extends React.Component {
   render() {
-    // const text = this.props.product.map((object) => object.itemDescription);
     return (
       <Wrapper>
         <Title>Description</Title>

@@ -20,7 +20,7 @@ export default class Page extends React.Component {
 
   componentDidMount() {
     this.getDataFromDB(this.props.id);
-    this.getDataFromApi();
+    this.getDataFromApi(this.props.id);
   }
 
   getDataFromDB(productId) {
@@ -41,14 +41,13 @@ export default class Page extends React.Component {
     });
   }
 
-  getDataFromApi() {
+  getDataFromApi(productId) {
     const { apiData } = this.state;
     $.ajax({
-      url: '/info',
+      url: `/info/${productId}`,
       method: 'GET',
       contentType: 'application/json',
       success: (result) => {
-        // console.log('TEEEEST ------>', result);
         var arrayData = [];
         arrayData.push(result);
         this.setState({
@@ -63,7 +62,6 @@ export default class Page extends React.Component {
 
   render() {
     const { product, apiData } = this.state;
-    // console.log('Data ----->', product);
     const sellerName = apiData.map((object) => {
       return object.seller_name;
     });
