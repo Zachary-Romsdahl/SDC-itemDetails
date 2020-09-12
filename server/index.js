@@ -3,6 +3,7 @@ require('dotenv').config();
 const path = require('path');
 const bodyParser = require('body-parser');
 const axios = require('axios');
+
 const app = express();
 const cors = require('cors');
 
@@ -28,30 +29,37 @@ app.get('/itemDetails/:productId', (req, res) => {
   });
 });
 
-app.get('/info', (req, res) => {
+app.get('/info/:productId', (req, res) => {
   // This method returns the value of param id when present
+  const id = req.params.productId;
   Promise.all([
-    axios.get('https://ttreitshop.s3-us-west-2.amazonaws.com/item1.json'),
-    axios.get('https://rvrita-fec-reviews.s3.us-west-1.amazonaws.com/rvrita-fec-reviews.json'),
-    axios.get('https://valeriia-ten-inventory.s3.us-east-2.amazonaws.com/inventory1.json'),
+    axios.get('https://ttreit-shop-all.s3-us-west-2.amazonaws.com/all.json'),
+    // axios.get('http://etsy-reviews.rvrita.com/'),
+    axios.get('https://valeriia-ten-inventory.s3.us-east-2.amazonaws.com/100inventory.json'),
   ])
-    .then(([shop, reviews, inventory]) => {
+    .then(([shop, inventory]) => {
+      const shopObjById = shop.data.filter((obj) => {
+        return (obj.product_id === parseInt(id));
+      });
+      const inventoryById = inventory.data.filter((obj) => {
+        return (obj.product_id === parseInt(id));
+      });
       const data = {
-        seller_name: shop.data.seller_name,
-        total_store_items: shop.data.total_store_items,
-        total_store_sales: shop.data.total_store_sales,
-        rating: reviews.data.rating,
-        quantity: inventory.data.quantity,
-        price: inventory.data.itemPrice,
-
+        seller_name: shopObjById[0].seller_name,
+        total_store_items: shopObjById[0].total_store_items,
+        total_store_sales: shopObjById[0].total_store_sales,
+        quantity: inventoryById[0].quantity,
+        price: inventoryById[0].itemPrice,
       };
       res.send(data);
+    })
+    .catch((err) => {
+      res.status(500).send(err);
     });
 });
 
 app.get('*', (req, res) => {
   res.sendFile(path.resolve(__dirname, '../client/dist/index.html'));
 });
-
 
 module.exports = app;

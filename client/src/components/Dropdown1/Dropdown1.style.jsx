@@ -1,19 +1,17 @@
-import React, { useState } from 'react';
 import styled from 'styled-components';
-import Dropdown2 from './Dropdown2.jsx';
 
-const Wrapper = styled('div')`
+export const Wrapper = styled('div')`
   padding-top: 2px;
   margin-bottom: 0.8em;
   background: none;
   height: 30vh;
 `;
 
-const DropDownContainer = styled('div')`
+export const DropDownContainer = styled('div')`
   width: auto;
 `;
 
-const DropDownHeader = styled('div')`
+export const DropDownHeader = styled('div')`
   padding: 0.4em 2em 0.4em 1em;
   box-shadow: 0 1px 6px 0 rgba(34, 34, 34, 0.15);
   display: block;
@@ -33,11 +31,11 @@ const DropDownHeader = styled('div')`
   border-width: 1px;
 `;
 
-const DropDownListContainer = styled('div')`
+export const DropDownListContainer = styled('div')`
   position: absolute;
 `;
 
-const DropDownList = styled('ul')`
+export const DropDownList = styled('ul')`
   padding: 6px 0px 6px 10px;
   width: 448px;
   margin-top: -0.2em;
@@ -54,7 +52,7 @@ const DropDownList = styled('ul')`
   border-color: -internal-light-dark(rgb(118, 118, 118), rgb(195, 195, 195));
 `;
 
-const ListItem = styled('li')`
+export const ListItem = styled('li')`
   font-weight: normal;
   display: block;
   white-space: pre;
@@ -63,7 +61,7 @@ const ListItem = styled('li')`
   color: #222222;
 `;
 
-const Title = styled.h1`
+export const Title = styled.h1`
   font-family: 'Graphik Webfont', -apple-system, BlinkMacSystemFont, 'Roboto',
     'Droid Sans', 'Segoe UI', 'Helvetica', Arial, sans-serif;
   font-weight: 300;
@@ -72,14 +70,7 @@ const Title = styled.h1`
   color: #222222;
 `;
 
-const options = [
-  'Select a size',
-  'Small (5") inches ($50.00)',
-  'Medium (6 1/2") inches [Sold out]',
-  'Large (8") inches ($90.00)',
-];
-
-const Button1 = styled.button`
+export const Button1 = styled.button`
   font-family: 'Graphik Webfont', -apple-system, BlinkMacSystemFont, 'Roboto',
     'Droid Sans', 'Segoe UI', 'Helvetica', Arial, sans-serif;
   background: none;
@@ -106,7 +97,7 @@ const Button1 = styled.button`
   width: 100% !important;
 `;
 
-const Button2 = styled.button`
+export const Button2 = styled.button`
   font-family: 'Graphik Webfont', -apple-system, BlinkMacSystemFont, 'Roboto',
     'Droid Sans', 'Segoe UI', 'Helvetica', Arial, sans-serif;
   border-radius: 24px;
@@ -135,44 +126,3 @@ const Button2 = styled.button`
   background-position: 50% 50%;
   width: 100% !important;
 `;
-
-export default function Dropdown1(props) {
-  const color = props.product.map((obj) => {
-    return Object.values(obj.options.color);
-  });
-
-  const [isOpen, setIsOpen] = useState(false);
-  const [selectedOption, setSelectedOption] = useState(null);
-  const toggling = () => setIsOpen(!isOpen);
-
-  const onOptionClicked = (value) => () => {
-    setSelectedOption(value);
-    setIsOpen(false);
-    console.log(selectedOption);
-  };
-
-  return (
-    <Wrapper>
-      <Title>Size</Title>
-      <DropDownContainer>
-        <DropDownHeader onClick={toggling}>
-          {selectedOption || 'Select a size'}
-        </DropDownHeader>
-        {isOpen && (
-          <DropDownListContainer>
-            <DropDownList>
-              {options.map((option) => (
-                <ListItem onClick={onOptionClicked(option)} key={Math.random()}>
-                  {option}
-                </ListItem>
-              ))}
-            </DropDownList>
-          </DropDownListContainer>
-        )}
-      </DropDownContainer>
-      <Dropdown2 color={color} />
-      <Button1>Buy it now</Button1>
-      <Button2>Add to cart</Button2>
-    </Wrapper>
-  );
-}
