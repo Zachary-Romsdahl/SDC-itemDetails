@@ -22,5 +22,7 @@ export const StyledText = styled.div`
 `;
 
 export const Text = styled.p`
-  font-family: 'Guardian-EgypTT', serif;
+  font-family: 'GuardianEgypt', 'Merriweather', serif;
+  -webkit-font-smoothing: antialiased;
+  color: #222;
 `;
