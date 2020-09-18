@@ -20,5 +20,5 @@ export const Text = styled.h1`
   font-size: 16px;
   line-height: 28px;
   text-align: left;
-  color: black;
+  color: #222;
 `;

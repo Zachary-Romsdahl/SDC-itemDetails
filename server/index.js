@@ -32,12 +32,16 @@ app.get('/itemDetails/:productId', (req, res) => {
 app.get('/info/:productId', (req, res) => {
   // This method returns the value of param id when present
   const id = req.params.productId;
+  var url = [
+    'https://rvrita-fec-reviews.s3.us-west-1.amazonaws.com/rvrita-fec-reviews.json',
+    'https://rvrita-fec-reviews.s3.us-west-1.amazonaws.com/rvrita-fec-reviews2.json',
+  ];
   Promise.all([
     axios.get('https://ttreit-shop-all.s3-us-west-2.amazonaws.com/all.json'),
-    // axios.get('http://etsy-reviews.rvrita.com/'),
+    axios.get(url[Math.floor(Math.random() * url.length)]),
     axios.get('https://valeriia-ten-inventory.s3.us-east-2.amazonaws.com/100inventory.json'),
   ])
-    .then(([shop, inventory]) => {
+    .then(([shop, reviews, inventory]) => {
       const shopObjById = shop.data.filter((obj) => {
         return (obj.product_id === parseInt(id));
       });
@@ -50,6 +54,9 @@ app.get('/info/:productId', (req, res) => {
         total_store_sales: shopObjById[0].total_store_sales,
         quantity: inventoryById[0].quantity,
         price: inventoryById[0].itemPrice,
+        itemPopularity: inventoryById[0].itemPopularity,
+        availability: inventoryById[0].itemAvailability,
+        rating: reviews.data.rating,
       };
       res.send(data);
     })

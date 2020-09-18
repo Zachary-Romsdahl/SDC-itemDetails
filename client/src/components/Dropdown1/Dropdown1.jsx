@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import Dropdown2 from '../Dropdown2/Dropdown2.jsx';
 import {
-  Wrapper,
+  Box,
   DropDownContainer,
   DropDownHeader,
   DropDownListContainer,
@@ -36,7 +36,7 @@ export default function Dropdown1(props) {
   };
 
   return (
-    <Wrapper>
+    <Box>
       <Title>Size</Title>
       <DropDownContainer>
         <DropDownHeader onClick={toggling}>
@@ -53,10 +53,10 @@ export default function Dropdown1(props) {
             </DropDownList>
           </DropDownListContainer>
         )}
+        <Dropdown2 color={color} />
       </DropDownContainer>
-      <Dropdown2 color={color} />
       <Button1>Buy it now</Button1>
       <Button2>Add to cart</Button2>
-    </Wrapper>
+    </Box>
   );
 }

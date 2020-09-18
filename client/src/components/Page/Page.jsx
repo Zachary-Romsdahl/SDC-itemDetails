@@ -1,10 +1,11 @@
 import React from 'react';
-import styled from 'styled-components';
 import Details from '../Details/Details.jsx';
 import Dropdown1 from '../Dropdown1/Dropdown1.jsx';
 import Material from '../Material/Material.jsx';
 import NameOfItem from '../NameOfItem/NameOfItem.jsx';
-import { Wrapper, Title, SalesTitle } from './Page.style.jsx';
+import Stars from '../Stars/Stars.jsx';
+import Module from '../Module/Module.jsx';
+import { Box, Wrapper, Title, SalesTitle } from './Page.style.jsx';
 import $ from 'jquery';
 
 export default class Page extends React.Component {
@@ -13,6 +14,7 @@ export default class Page extends React.Component {
     (this.state = {
       product: [],
       apiData: [],
+      rating: 0,
     }),
       (this.getDataFromDB = this.getDataFromDB.bind(this));
     this.getDataFromApi = this.getDataFromApi.bind(this);
@@ -52,6 +54,7 @@ export default class Page extends React.Component {
         arrayData.push(result);
         this.setState({
           apiData: arrayData,
+          rating: result.rating,
         });
       },
       error: (xhr, status, error) => {
@@ -61,18 +64,21 @@ export default class Page extends React.Component {
   }
 
   render() {
-    const { product, apiData } = this.state;
-    const sellerName = apiData.map((object) => {
-      return object.seller_name;
-    });
-    const totalSales = apiData.map((object) => {
-      return object.total_store_sales;
-    });
+    const { product, apiData, rating } = this.state;
+    // console.log('API data ', apiData);
+    console.log('rating from page', rating);
     return (
       <Wrapper>
-        <Title>{sellerName}</Title>
-        <SalesTitle>{totalSales + ` sales`}</SalesTitle>
+        <Title>{apiData.map((object) => object.seller_name)}</Title>
+        <Box>
+          <SalesTitle>
+            {apiData.map((object) => object.total_store_sales)} sales{' '}
+          </SalesTitle>
+          <span> | </span>
+          <Stars rating={rating} />
+        </Box>
         <NameOfItem product={product} />
+        <Module apiData={apiData} />
         <Dropdown1 apiData={apiData} product={product} />
         <Material product={product} />
         <Details product={product} />
