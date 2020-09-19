@@ -1,14 +1,27 @@
 import React from 'react';
-import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import { Title } from './NameOfItem.style.jsx';
+import { Title, Wrapper, Popularity } from './NameOfItem.style.jsx';
 
 class NameOfItem extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {};
+  }
   render() {
-    const itemName = this.props.product.map((object) => {
-      return object.itemName;
-    });
-    return <Title>{itemName}</Title>;
+    return (
+      <Wrapper>
+        <Title>
+          {this.props.product.map((object) => {
+            return object.itemName;
+          })}
+        </Title>
+        <Popularity>
+          {this.props.apiData.map((obj) => {
+            return obj.itemPopularity;
+          })}
+        </Popularity>
+      </Wrapper>
+    );
   }
 }
 

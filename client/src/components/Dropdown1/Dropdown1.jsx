@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import styled from 'styled-components';
 import Dropdown2 from '../Dropdown2/Dropdown2.jsx';
 import {
   Box,

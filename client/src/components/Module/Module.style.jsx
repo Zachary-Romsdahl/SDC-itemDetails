@@ -1,26 +1,26 @@
 import styled from 'styled-components';
 
 export const Wrapper = styled.div``;
-export const Popularity = styled.div`
-  background: #fdebd2;
-  color: inherit;
-  border-radius: 15px;
-  color: inherit;
-  display: inline-block;
-  word-break: break-word;
-  line-height: 1;
-  font-size: 13px;
-  font-weight: normal;
-  padding-top: 6px;
-  padding-bottom: 6px;
-  padding-left: 9px;
-  padding-right: 9px;
-  min-width: 25px;
-  margin-right: 6px !important;
-`;
+
 export const Price = styled.div`
   display: inline-block;
+  font-weight: 500;
+  letter-spacing: 0.4px;
+  font-size: 28px;
+  line-height: 36px;
+  font-family: 'Graphik Webfont', -apple-system, BlinkMacSystemFont, 'Roboto',
+    'Droid Sans', 'Segoe UI', 'Helvetica', Arial, sans-serif; ;
 `;
 export const Stock = styled.div`
+  font-family: 'Graphik Webfont', -apple-system, BlinkMacSystemFont, 'Roboto',
+    'Droid Sans', 'Segoe UI', 'Helvetica', Arial, sans-serif;
   display: inline-block;
+  font-weight: 500;
+  font-size: 13px;
+`;
+
+export const Pricebox = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 `;

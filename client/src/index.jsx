@@ -9,6 +9,7 @@ const Wrapper = styled.div`
   width: 100%;
   font-size: 1em;
   border: none;
+  box-sizing: border-box;
   border-radius: 3px;
   line-height: 150%;
   letter-spacing: 0.4px;

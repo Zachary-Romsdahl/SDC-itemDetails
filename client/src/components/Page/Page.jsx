@@ -5,7 +5,7 @@ import Material from '../Material/Material.jsx';
 import NameOfItem from '../NameOfItem/NameOfItem.jsx';
 import Stars from '../Stars/Stars.jsx';
 import Module from '../Module/Module.jsx';
-import { Box, Wrapper, Title, SalesTitle } from './Page.style.jsx';
+import { Box, Wrapper, Title, SalesTitle, Span } from './Page.style.jsx';
 import $ from 'jquery';
 
 export default class Page extends React.Component {
@@ -74,10 +74,10 @@ export default class Page extends React.Component {
           <SalesTitle>
             {apiData.map((object) => object.total_store_sales)} sales{' '}
           </SalesTitle>
-          <span> | </span>
+          <Span> | </Span>
           <Stars rating={rating} />
         </Box>
-        <NameOfItem product={product} />
+        <NameOfItem product={product} apiData={apiData} />
         <Module apiData={apiData} />
         <Dropdown1 apiData={apiData} product={product} />
         <Material product={product} />
