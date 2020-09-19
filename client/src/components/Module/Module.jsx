@@ -1,22 +1,15 @@
 import React from 'react';
-import { Wrapper, Popularity, Price, Stock } from './Module.style.jsx';
+import { Wrapper, Price, Stock, Pricebox } from './Module.style.jsx';
 
 const Module = (props) => {
   const { apiData } = props;
-  console.log('Module ', apiData);
   return (
     <Wrapper>
-      <div>
-        <Popularity>
-          {apiData.map((obj) => {
-            return obj.itemPopularity;
-          })}
-        </Popularity>
-      </div>
-      <div>
+      <Pricebox>
         <Price>
+          $
           {apiData.map((obj) => {
-            return obj.price;
+            return obj.price.toFixed(2);
           })}
         </Price>
         <Stock>
@@ -24,7 +17,7 @@ const Module = (props) => {
             return obj.availability;
           })}
         </Stock>
-      </div>
+      </Pricebox>
     </Wrapper>
   );
 };

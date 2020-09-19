@@ -6,6 +6,7 @@ export const Box = styled.div`
 
 export const Svg = styled.svg`
   display: inline-block;
-  height: 14px;
-  width: 14px;
+  height: 12px;
+  width: 12px;
+  margin-right: 5px;
 `;
