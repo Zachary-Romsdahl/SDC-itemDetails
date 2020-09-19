@@ -1,14 +1,36 @@
 import React from 'react';
-import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import { Title } from './NameOfItem.style.jsx';
+import { Title, Wrapper, Popularity } from './NameOfItem.style.jsx';
 
 class NameOfItem extends React.Component {
   render() {
-    const itemName = this.props.product.map((object) => {
-      return object.itemName;
+    const { apiData } = this.props;
+    const itemPopularity = this.props.apiData.map((obj) => {
+      return obj.itemPopularity;
     });
-    return <Title>{itemName}</Title>;
+    console.log('itemPopularity', itemPopularity);
+    if (itemPopularity[0] === 'Bestseller') {
+      return (
+        <Wrapper>
+          <Title>
+            {this.props.product.map((object) => {
+              return object.itemName;
+            })}
+          </Title>
+          <Popularity>{itemPopularity}</Popularity>
+        </Wrapper>
+      );
+    } else {
+      return (
+        <Wrapper>
+          <Title>
+            {this.props.product.map((object) => {
+              return object.itemName;
+            })}
+          </Title>
+        </Wrapper>
+      );
+    }
   }
 }
 

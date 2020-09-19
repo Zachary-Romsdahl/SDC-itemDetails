@@ -1,26 +1,26 @@
 import styled from 'styled-components';
 
-export const Wrapper = styled('div')`
+export const Box = styled('div')`
+  width: 100%;
   padding-top: 2px;
-  margin-bottom: 0.8em;
   background: none;
-  height: 30vh;
+  overflow: hidden;
 `;
 
 export const DropDownContainer = styled('div')`
-  width: auto;
+  position: relative;
 `;
 
 export const DropDownHeader = styled('div')`
-  padding: 0.4em 2em 0.4em 1em;
+  padding: 10px 36px 10px 12px;
   box-shadow: 0 1px 6px 0 rgba(34, 34, 34, 0.15);
   display: block;
   font-family: inherit;
   font-size: 16px;
   color: #3faffa;
-  height: 30px;
-  padding-left: 12px;
-  padding-right: 36px;
+  height: 48px;
+  // padding-left: 12px;
+  // padding-right: 36px;
   color: #222222;
   text-indent: 0.01px;
   cursor: pointer;
@@ -29,19 +29,23 @@ export const DropDownHeader = styled('div')`
   border-color: rgba(34, 34, 34, 0.15);
   border-style: solid;
   border-width: 1px;
+  &:hover {
+    border-color: rgba(34, 34, 34, 0.5);
+    box-shadow: 0 1px 12px 0 rgba(34, 34, 34, 0.2);
+  }
+  box-sizing: border-box;
 `;
 
 export const DropDownListContainer = styled('div')`
   position: absolute;
+  width: 100%;
 `;
 
 export const DropDownList = styled('ul')`
   padding: 6px 0px 6px 10px;
-  width: 448px;
   margin-top: -0.2em;
   box-sizing: border-box;
   font-weight: normal;
-  display: block;
   white-space: pre;
   min-height: 1.2em;
   background: #ffffff;
@@ -58,7 +62,13 @@ export const ListItem = styled('li')`
   white-space: pre;
   min-height: 1.2em;
   padding: 0px 2px 1px;
-  color: #222222;
+  color: #222;
+  &:hover {
+    background-color: #0099ff;
+    color: white;
+  }
+  // font: 400 13.3333px Arial;
+  font-size: 16px;
 `;
 
 export const Title = styled.h1`
@@ -67,7 +77,7 @@ export const Title = styled.h1`
   font-weight: 300;
   font-size: 13px;
   line-height: 10px;
-  color: #222222;
+  color: #222;
 `;
 
 export const Button1 = styled.button`
@@ -88,10 +98,7 @@ export const Button1 = styled.button`
   background-color: -internal-light-dark(rgb(239, 239, 239), rgb(74, 74, 74));
   margin-top: 1em;
   padding: 1px 6px;
-  border-width: 2px;
-  border-style: outset;
-  border-color: -internal-light-dark(rgb(118, 118, 118), rgb(195, 195, 195));
-  border-image: initial;
+  outline: none;
   background-size: 100% 60%;
   background-position: 50% 50%;
   width: 100% !important;
@@ -100,6 +107,7 @@ export const Button1 = styled.button`
 export const Button2 = styled.button`
   font-family: 'Graphik Webfont', -apple-system, BlinkMacSystemFont, 'Roboto',
     'Droid Sans', 'Segoe UI', 'Helvetica', Arial, sans-serif;
+  border: none;
   border-radius: 24px;
   font-size: 16px;
   color: white;
@@ -117,10 +125,8 @@ export const Button2 = styled.button`
   background-color: -internal-light-dark(rgb(239, 239, 239), rgb(74, 74, 74));
   margin-top: 1em;
   padding: 1px 6px;
-  border-width: 2px;
-  border-style: outset;
+  outline: none;
   border-color: -internal-light-dark(rgb(118, 118, 118), rgb(195, 195, 195));
-  border-image: initial;
   background: #222222;
   background-size: 100% 60%;
   background-position: 50% 50%;

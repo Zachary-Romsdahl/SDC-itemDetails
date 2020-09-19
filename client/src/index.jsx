@@ -4,10 +4,12 @@ import styled from 'styled-components';
 import Page from './components/Page/Page.jsx';
 
 const Wrapper = styled.div`
+  margin-bottom: 36px;
   padding: 0px 30px 0px 0px;
-  width: 450px;
+  width: 100%;
   font-size: 1em;
   border: none;
+  box-sizing: border-box;
   border-radius: 3px;
   line-height: 150%;
   letter-spacing: 0.4px;

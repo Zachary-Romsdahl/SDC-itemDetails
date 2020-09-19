@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 export const Wrapper = styled('div')`
+  width: 100%;
   padding-top: 2px;
 `;
 
@@ -24,6 +25,10 @@ export const DropDownHeader = styled('div')`
   border-color: rgba(34, 34, 34, 0.15);
   border-style: solid;
   border-width: 1px;
+  &:hover {
+    border-color: rgba(34, 34, 34, 0.5);
+    box-shadow: 0 1px 12px 0 rgba(34, 34, 34, 0.2);
+  }
 `;
 
 export const DropDownListContainer = styled('div')`
@@ -33,7 +38,6 @@ export const DropDownListContainer = styled('div')`
 
 export const DropDownList = styled('ul')`
   padding: 6px 0px 6px 10px;
-  width: 448px;
   margin-top: -0.2em;
   box-sizing: border-box;
   font-weight: normal;
@@ -55,6 +59,10 @@ export const ListItem = styled('li')`
   min-height: 1.2em;
   padding: 0px 2px 1px;
   color: #222222;
+  &:hover {
+    background-color: #0099ff;
+    color: white;
+  }
 `;
 
 export const Title = styled.h1`
