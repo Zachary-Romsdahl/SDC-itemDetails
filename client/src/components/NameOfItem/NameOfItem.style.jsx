@@ -17,6 +17,8 @@ export const Title = styled.h1`
 `;
 
 export const Popularity = styled.div`
+  font-family: 'Graphik Webfont', -apple-system, BlinkMacSystemFont, 'Roboto',
+    'Droid Sans', 'Segoe UI', 'Helvetica', Arial, sans-serif;
   background: #fdebd2;
   color: inherit;
   border-radius: 15px;

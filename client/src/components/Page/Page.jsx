@@ -5,7 +5,8 @@ import Material from '../Material/Material.jsx';
 import NameOfItem from '../NameOfItem/NameOfItem.jsx';
 import Stars from '../Stars/Stars.jsx';
 import Module from '../Module/Module.jsx';
-import { Box, Wrapper, Title, SalesTitle, Span } from './Page.style.jsx';
+import Pictures from '../Pictures/Pictures.jsx';
+import { Box, Box2, Wrapper, Title, SalesTitle, Span } from './Page.style.jsx';
 import $ from 'jquery';
 
 export default class Page extends React.Component {
@@ -77,9 +78,12 @@ export default class Page extends React.Component {
           <Span> | </Span>
           <Stars rating={rating} />
         </Box>
-        <NameOfItem product={product} apiData={apiData} />
-        <Module apiData={apiData} />
-        <Dropdown1 apiData={apiData} product={product} />
+        <Box2>
+          <NameOfItem product={product} apiData={apiData} />
+          <Module apiData={apiData} />
+          <Dropdown1 apiData={apiData} product={product} />
+          <Pictures apiData={apiData} />
+        </Box2>
         <Material product={product} />
         <Details product={product} />
       </Wrapper>
