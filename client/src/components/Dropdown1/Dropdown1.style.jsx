@@ -3,7 +3,6 @@ import styled from 'styled-components';
 export const Box = styled('div')`
   width: 100%;
   padding-top: 2px;
-  margin-bottom: 0.8em;
   background: none;
   overflow: hidden;
 `;
@@ -13,15 +12,15 @@ export const DropDownContainer = styled('div')`
 `;
 
 export const DropDownHeader = styled('div')`
-  padding: 0.4em 2em 0.4em 1em;
+  padding: 10px 36px 10px 12px;
   box-shadow: 0 1px 6px 0 rgba(34, 34, 34, 0.15);
   display: block;
   font-family: inherit;
   font-size: 16px;
   color: #3faffa;
-  height: 30px;
-  padding-left: 12px;
-  padding-right: 36px;
+  height: 48px;
+  // padding-left: 12px;
+  // padding-right: 36px;
   color: #222222;
   text-indent: 0.01px;
   cursor: pointer;
@@ -34,6 +33,7 @@ export const DropDownHeader = styled('div')`
     border-color: rgba(34, 34, 34, 0.5);
     box-shadow: 0 1px 12px 0 rgba(34, 34, 34, 0.2);
   }
+  box-sizing: border-box;
 `;
 
 export const DropDownListContainer = styled('div')`
@@ -67,6 +67,8 @@ export const ListItem = styled('li')`
     background-color: #0099ff;
     color: white;
   }
+  // font: 400 13.3333px Arial;
+  font-size: 16px;
 `;
 
 export const Title = styled.h1`

@@ -56,6 +56,7 @@ app.get('/info/:productId', (req, res) => {
         price: inventoryById[0].itemPrice,
         itemPopularity: inventoryById[0].itemPopularity,
         availability: inventoryById[0].itemAvailability,
+        isFreeShipping: inventoryById[0].isFreeShipping,
         rating: reviews.data.rating,
       };
       res.send(data);

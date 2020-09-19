@@ -26,6 +26,10 @@ export const Box = styled.div`
   margin: 0px;
 `;
 
+export const Box2 = styled.div`
+  margin-bottom: 36px !important;
+`;
+
 export const Span = styled.div`
   color: #e1e3df;
   display: inline-block;

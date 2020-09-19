@@ -10,6 +10,8 @@ import {
   Title,
   Button1,
   Button2,
+  Arrow,
+  Svg,
 } from './Dropdown1.style.jsx';
 
 const options = [
@@ -20,10 +22,6 @@ const options = [
 ];
 
 export default function Dropdown1(props) {
-  const color = props.product.map((obj) => {
-    return Object.values(obj.options.color);
-  });
-
   const [isOpen, setIsOpen] = useState(false);
   const [selectedOption, setSelectedOption] = useState(null);
   const toggling = () => setIsOpen(!isOpen);
@@ -52,7 +50,11 @@ export default function Dropdown1(props) {
             </DropDownList>
           </DropDownListContainer>
         )}
-        <Dropdown2 color={color} />
+        <Dropdown2
+          color={props.product.map((obj) => {
+            return Object.values(obj.options.color);
+          })}
+        />
       </DropDownContainer>
       <Button1>Buy it now</Button1>
       <Button2>Add to cart</Button2>
