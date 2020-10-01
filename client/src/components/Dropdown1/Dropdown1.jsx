@@ -10,8 +10,6 @@ import {
   Title,
   Button1,
   Button2,
-  Arrow,
-  Svg,
 } from './Dropdown1.style.jsx';
 
 const options = [

@@ -1,4 +1,5 @@
-Item Details Module
-npm run react-dev
-npm run server-dev
-npm run db:setup
+To start server: npm run server-dev
+
+To seed database: npm run db:setup
+
+To bundle files via webpack: npm run react-dev
