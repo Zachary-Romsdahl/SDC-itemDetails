@@ -1,5 +1,3 @@
-To start server: npm run server-dev
-
-To seed database: npm run db:setup
-
-To bundle files via webpack: npm run react-dev
+Start server: npm run server-dev
+Bundle files: npm run react-dev
+Seed database: npm run db:setup
