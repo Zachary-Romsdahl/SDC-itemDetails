@@ -2,7 +2,6 @@ const mongoose = require('mongoose');
 const db = require('./index.js');
 
 const productSchema = mongoose.Schema({
-  // TODO: your schema here!
   productId: { type: Number, unique: true },
   itemName: String,
   options: { size: [String], color: [String] },
