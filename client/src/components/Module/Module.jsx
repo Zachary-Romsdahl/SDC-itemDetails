@@ -32,7 +32,6 @@ const checkMark = (apiData) => {
     console.log('true');
     pic.push(svgImg.mark(1));
   }
-  console.log('PIc', pic);
   return pic;
 };
 

@@ -1,4 +1,5 @@
 import React from 'react';
+import $ from 'jquery';
 import Details from '../Details/Details.jsx';
 import Dropdown1 from '../Dropdown1/Dropdown1.jsx';
 import Material from '../Material/Material.jsx';
@@ -6,34 +7,36 @@ import NameOfItem from '../NameOfItem/NameOfItem.jsx';
 import Stars from '../Stars/Stars.jsx';
 import Module from '../Module/Module.jsx';
 import Pictures from '../Pictures/Pictures.jsx';
-import { Box, Box2, Wrapper, Title, SalesTitle, Span } from './Page.style.jsx';
-import $ from 'jquery';
+import {
+  Box, Box2, Wrapper, Title, SalesTitle, Span,
+} from './Page.style.jsx';
 
 export default class Page extends React.Component {
   constructor(props) {
     super(props);
-    (this.state = {
+    this.state = {
       product: [],
       apiData: [],
       rating: 0,
-    }),
-      (this.getDataFromDB = this.getDataFromDB.bind(this));
+    };
+    this.getDataFromDB = this.getDataFromDB.bind(this);
     this.getDataFromApi = this.getDataFromApi.bind(this);
+    this.mockCrud = this.mockCrud.bind(this);
   }
 
   componentDidMount() {
-    this.getDataFromDB(this.props.id);
-    this.getDataFromApi(this.props.id);
+    const { id } = this.props;
+    this.getDataFromDB(id);
+    this.getDataFromApi(id);
+    this.mockCrud(id);
   }
 
   getDataFromDB(productId) {
-    const { product } = this.state;
     $.ajax({
       url: `/itemDetails/${productId}`,
       method: 'GET',
       contentType: 'application/json',
       success: (productData) => {
-        console.log('Product data', productData);
         this.setState({
           product: productData,
         });
@@ -45,13 +48,12 @@ export default class Page extends React.Component {
   }
 
   getDataFromApi(productId) {
-    const { apiData } = this.state;
     $.ajax({
       url: `/info/${productId}`,
       method: 'GET',
       contentType: 'application/json',
       success: (result) => {
-        var arrayData = [];
+        const arrayData = [];
         arrayData.push(result);
         this.setState({
           apiData: arrayData,
@@ -64,16 +66,42 @@ export default class Page extends React.Component {
     });
   }
 
+  // eslint-disable-next-line class-methods-use-this
+  mockCrud(id) {
+    const postData = {
+      options: {
+        size: ['small', 'large'],
+        color: ['red'],
+      },
+      itemName: 'BLAH BLAH BLAH',
+      materials: 'Very pretty',
+      itemDescription: 'blugghggsfsf',
+    };
+
+    $.ajax({
+      url: `/itemDetails/${5000}`,
+      method: 'DELETE',
+      // data: postData,
+      success: (res) => {
+        console.log(res);
+      },
+      error: (xhr, status, error) => {
+        console.log('err', xhr, status, error);
+      },
+    });
+  }
+
   render() {
     const { product, apiData, rating } = this.state;
-    // console.log('API data ', apiData);
-    console.log('rating from page', rating);
     return (
       <Wrapper>
         <Title>{apiData.map((object) => object.seller_name)}</Title>
         <Box>
           <SalesTitle>
-            {apiData.map((object) => object.total_store_sales)} sales{' '}
+            {apiData.map((object) => object.total_store_sales)}
+            {' '}
+            sales
+            {' '}
           </SalesTitle>
           <Span> | </Span>
           <Stars rating={rating} />

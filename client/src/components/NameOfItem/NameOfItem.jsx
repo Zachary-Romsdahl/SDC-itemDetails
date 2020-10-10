@@ -8,7 +8,6 @@ class NameOfItem extends React.Component {
     const itemPopularity = this.props.apiData.map((obj) => {
       return obj.itemPopularity;
     });
-    console.log('itemPopularity', itemPopularity);
     if (itemPopularity[0] === 'Bestseller') {
       return (
         <Wrapper>
