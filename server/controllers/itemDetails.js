@@ -2,10 +2,11 @@ const Description = require('../../database/serviceDescription.js');
 
 exports.item_details_read = (req, res) => {
   const id = req.params.productId;
-  Description.find({ productId: id }, (err, result) => {
+  Description.findOne({ productId: id }, (err, result) => {
     if (err) {
       res.status(500).send(err);
     } else {
+      result = [result];
       res.send(result);
     }
   });
