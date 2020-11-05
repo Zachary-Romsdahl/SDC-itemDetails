@@ -16,6 +16,7 @@ app.use(bodyParser.json());
 // Routing
 app.use('/itemDetails', itemDetails);
 
+// FIX ME
 app.get('/info/:productId', (req, res) => {
   const id = req.params.productId;
   var url = [
