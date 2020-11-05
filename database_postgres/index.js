@@ -1,9 +1,10 @@
 const Sequelize = require('sequelize');
+require('dotenv').config();
 
 const sequelize = new Sequelize(
   'descriptions',
-  'Romadom',
-  'crmtb4p7md',
+  process.env.DB_HOST,
+  process.env.DB_PASS,
   {
     host: 'localhost',
     dialect: 'postgres',

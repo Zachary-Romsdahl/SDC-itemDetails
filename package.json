@@ -1,12 +1,12 @@
 {
-  "name": "item-details-valeriiaten-etsy",
+  "name": "item-details-zach-etsy",
   "version": "1.0.0",
-  "description": "FEC",
+  "description": "SDC",
   "main": "index.js",
   "scripts": {
     "react-dev": "webpack -d --watch",
     "server-dev": "nodemon server/start.js",
-    "db:setup": "node database/seed.js",
+    "db:setup": "node database_postgres/seed.js",
     "test": "jest",
     "test:watch": "jest --watch"
   },
@@ -14,7 +14,7 @@
     "type": "git",
     "url": "git+https://github.com/FEC-Linka/Item-Details-ValeriiaTen-Etsy.git"
   },
-  "author": "ValeriiaTen",
+  "author": "Zachary Romsdahl",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/FEC-Linka/Item-Details-ValeriiaTen-Etsy/issues"
