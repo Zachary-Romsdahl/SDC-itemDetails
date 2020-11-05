@@ -26,19 +26,19 @@ const description = sequelize.define('descriptions', {
   timestamps: false,
 });
 
-// async function syncDescription() {
-//   await description.sync();
-//   console.log('Synced in await funct');
-// }
+async function syncDescription() {
+  await description.sync();
+  console.log('Synced in await funct');
+}
 
-// syncDescription();
+syncDescription();
 
-// description.sync()
-//   .then((res) => {
-//     console.log('synced', res);
-//   })
-//   .catch((err) => {
-//     console.log('error syncing:', err);
-//   });
+description.sync()
+  .then((res) => {
+    console.log('synced', res);
+  })
+  .catch((err) => {
+    console.log('error syncing:', err);
+  });
 
 module.exports = description;

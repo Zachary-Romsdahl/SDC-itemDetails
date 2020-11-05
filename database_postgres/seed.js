@@ -1,4 +1,4 @@
-const Description = require('./decriptions.js');
+const Description = require('./descriptions.js');
 const faker = require('faker');
 
 const colorLimit = () => {
