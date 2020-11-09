@@ -43,6 +43,7 @@ exports.item_details_update = (req, res) => {
 // Deletes the product given the id;
 exports.item_details_delete = (req, res) => {
   const id = req.params.productId;
+  console.log(`CRUD delete${id}`);
   Descriptions.destroy({ where: { product_id: id } })
     .then((response) => {
       console.log(response);

@@ -6,6 +6,7 @@
   "scripts": {
     "react-dev": "webpack -d --watch",
     "server-dev": "nodemon server/start.js",
+    "cluster-dev": "nodemon server/cluster.js",
     "db:setup": "node database_postgres/seed.js",
     "test": "jest",
     "test:watch": "jest --watch"
@@ -47,6 +48,7 @@
     "express": "^4.17.1",
     "jquery": "^3.5.1",
     "mongoose": "^5.10.0",
+    "newrelic": "^6.14.0",
     "pg": "^8.4.1",
     "postgres": "^1.0.2",
     "prop-types": "^15.7.2",

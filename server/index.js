@@ -19,7 +19,7 @@ app.use('/itemDetails', itemDetails);
 // FIX ME
 app.get('/info/:productId', (req, res) => {
   const id = req.params.productId;
-  var url = [
+  const url = [
     'https://rvrita-fec-reviews.s3.us-west-1.amazonaws.com/rvrita-fec-reviews.json',
     'https://rvrita-fec-reviews.s3.us-west-1.amazonaws.com/rvrita-fec-reviews2.json',
   ];
@@ -29,12 +29,8 @@ app.get('/info/:productId', (req, res) => {
     axios.get('https://valeriia-ten-inventory.s3.us-east-2.amazonaws.com/100inventory.json'),
   ])
     .then(([shop, reviews, inventory]) => {
-      const shopObjById = shop.data.filter((obj) => {
-        return (obj.product_id === parseInt(id));
-      });
-      const inventoryById = inventory.data.filter((obj) => {
-        return (obj.product_id === parseInt(id));
-      });
+      const shopObjById = shop.data.filter((obj) => (obj.product_id === parseInt(id)));
+      const inventoryById = inventory.data.filter((obj) => (obj.product_id === parseInt(id)));
       const data = {
         seller_name: shopObjById[0].seller_name,
         total_store_items: shopObjById[0].total_store_items,
