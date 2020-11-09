@@ -1,3 +1,6 @@
 node_modules
 package-lock
 .env
+newrelic.js
+newrelic_agent.log
+package-lock.json
