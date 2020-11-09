@@ -10,7 +10,7 @@ import {
 } from './Dropdown2.style.jsx';
 
 export default function Dropdown2(props) {
-  const options = props.color[0];
+  const { options } = props;
   const [isOpen, setIsOpen] = useState(false);
   const [selectedOption, setSelectedOption] = useState(null);
   const toggling = () => setIsOpen(!isOpen);

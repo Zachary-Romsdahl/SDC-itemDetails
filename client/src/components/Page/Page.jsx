@@ -15,20 +15,18 @@ export default class Page extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      product: [],
+      product: {},
       apiData: [],
       rating: 0,
     };
     this.getDataFromDB = this.getDataFromDB.bind(this);
     this.getDataFromApi = this.getDataFromApi.bind(this);
-    this.mockCrud = this.mockCrud.bind(this);
   }
 
   componentDidMount() {
     const { id } = this.props;
     this.getDataFromDB(id);
     this.getDataFromApi(id);
-    this.mockCrud(id);
   }
 
   getDataFromDB(productId) {
@@ -59,31 +57,6 @@ export default class Page extends React.Component {
           apiData: arrayData,
           rating: result.rating,
         });
-      },
-      error: (xhr, status, error) => {
-        console.log('err', xhr, status, error);
-      },
-    });
-  }
-
-  // eslint-disable-next-line class-methods-use-this
-  mockCrud(id) {
-    const postData = {
-      options: {
-        size: ['small', 'large'],
-        color: ['red'],
-      },
-      itemName: 'BLAH BLAH BLAH',
-      materials: 'Very pretty',
-      itemDescription: 'blugghggsfsf',
-    };
-
-    $.ajax({
-      url: `/itemDetails/${5000}`,
-      method: 'DELETE',
-      // data: postData,
-      success: (res) => {
-        console.log(res);
       },
       error: (xhr, status, error) => {
         console.log('err', xhr, status, error);

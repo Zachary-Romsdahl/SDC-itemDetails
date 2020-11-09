@@ -1,42 +1,34 @@
+/* eslint-disable react/forbid-prop-types */
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Title, Wrapper, Popularity } from './NameOfItem.style.jsx';
 
-class NameOfItem extends React.Component {
-  render() {
-    const { apiData } = this.props;
-    const itemPopularity = this.props.apiData.map((obj) => {
-      return obj.itemPopularity;
-    });
-    if (itemPopularity[0] === 'Bestseller') {
-      return (
-        <Wrapper>
-          <Title>
-            {this.props.product.map((object) => {
-              return object.itemName;
-            })}
-          </Title>
-          <Popularity>{itemPopularity}</Popularity>
-        </Wrapper>
-      );
-    } else {
-      return (
-        <Wrapper>
-          <Title>
-            {this.props.product.map((object) => {
-              return object.itemName;
-            })}
-          </Title>
-        </Wrapper>
-      );
-    }
+function NameOfItem(props) {
+  const { apiData, product } = props;
+  const itemPopularity = apiData.map((obj) => obj.itemPopularity);
+  if (itemPopularity[0] === 'Bestseller') {
+    return (
+      <Wrapper>
+        <Title>
+          {product.itemName}
+        </Title>
+        <Popularity>{itemPopularity}</Popularity>
+      </Wrapper>
+    );
   }
+  return (
+    <Wrapper>
+      <Title>
+        {product.itemName}
+      </Title>
+    </Wrapper>
+  );
 }
 
 NameOfItem.defaultProps = {
-  product: [],
+  product: {},
 };
 NameOfItem.propTypes = {
-  product: PropTypes.arrayOf(PropTypes.object),
+  product: PropTypes.object,
 };
 export default NameOfItem;
