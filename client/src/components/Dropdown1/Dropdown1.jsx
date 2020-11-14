@@ -1,4 +1,6 @@
+/* eslint-disable react/forbid-prop-types */
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import Dropdown2 from '../Dropdown2/Dropdown2.jsx';
 import {
   Box,
@@ -29,7 +31,8 @@ export default function Dropdown1(props) {
     setIsOpen(false);
     console.log(selectedOption);
   };
-
+  const { product } = props;
+  // const options = { size: product.size, color: product.color, quantity: product.quantity };
   return (
     <Box>
       <Title>Size</Title>
@@ -49,9 +52,7 @@ export default function Dropdown1(props) {
           </DropDownListContainer>
         )}
         <Dropdown2
-          color={props.product.map((obj) => {
-            return Object.values(obj.options.color);
-          })}
+          color={product.color}
         />
       </DropDownContainer>
       <Button1>Buy it now</Button1>
@@ -59,3 +60,9 @@ export default function Dropdown1(props) {
     </Box>
   );
 }
+Dropdown1.defaultProps = {
+  product: {},
+};
+Dropdown1.propTypes = {
+  product: PropTypes.object,
+};

@@ -16,11 +16,11 @@ const Wrapper = styled.div`
 `;
 
 const productId = () => {
-  var url = window.location.href;
+  const url = window.location.href;
   if (url[url.length - 1] === '/') {
     var productId = '1';
   } else {
-    var index = url.lastIndexOf('/');
+    const index = url.lastIndexOf('/');
     var productId = url.slice(index + 1);
   }
   return productId;
@@ -30,5 +30,5 @@ ReactDOM.render(
   <Wrapper>
     <Page id={productId()} />
   </Wrapper>,
-  document.getElementById('details')
+  document.getElementById('details'),
 );

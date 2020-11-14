@@ -1,3 +1,4 @@
+/* eslint-disable react/forbid-prop-types */
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import {
@@ -12,35 +13,34 @@ import {
 export default function Details(props) {
   const [isOpen, setIsOpen] = useState(false);
   const toggling = () => setIsOpen(!isOpen);
-
+  const { product } = props;
   if (!isOpen) {
     return (
       <Wrapper>
         <Title>Description</Title>
 
-        <Text1>{props.product.map((object) => object.itemDescription)}</Text1>
+        <Text1>{product.itemDescription}</Text1>
 
         <ButtonDiv>
           <Button onClick={toggling}>Learn more about this item</Button>
         </ButtonDiv>
       </Wrapper>
     );
-  } else {
-    return (
-      <Wrapper>
-        <Title>Description</Title>
-        <Text>{props.product.map((object) => object.itemDescription)}</Text>
-        <ButtonDiv>
-          <Button onClick={toggling}>Less</Button>
-        </ButtonDiv>
-      </Wrapper>
-    );
   }
+  return (
+    <Wrapper>
+      <Title>Description</Title>
+      <Text>{product.itemDescription}</Text>
+      <ButtonDiv>
+        <Button onClick={toggling}>Less</Button>
+      </ButtonDiv>
+    </Wrapper>
+  );
 }
 
 Details.defaultProps = {
-  product: [],
+  product: {},
 };
 Details.propTypes = {
-  product: PropTypes.arrayOf(PropTypes.object),
+  product: PropTypes.object,
 };
