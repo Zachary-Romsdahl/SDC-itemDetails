@@ -10,7 +10,8 @@ import {
 } from './Dropdown2.style.jsx';
 
 export default function Dropdown2(props) {
-  const { options } = props;
+  console.log(props)
+  const { color } = props;
   const [isOpen, setIsOpen] = useState(false);
   const [selectedOption, setSelectedOption] = useState(null);
   const toggling = () => setIsOpen(!isOpen);
@@ -31,7 +32,7 @@ export default function Dropdown2(props) {
         {isOpen && (
           <DropDownListContainer>
             <DropDownList>
-              {options.map((option) => (
+              {color.map((option) => (
                 <ListItem
                   onClick={onOptionClicked(
                     option.charAt(0).toUpperCase() + option.slice(1)
