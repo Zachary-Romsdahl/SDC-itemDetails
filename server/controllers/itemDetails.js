@@ -2,6 +2,7 @@ const Descriptions = require('../../database_postgres/descriptions.js');
 
 exports.item_details_read = (req, res) => {
   const id = req.params.productId;
+  console.log(id);
   Descriptions.findOne({ where: { product_id: id } })
     .then((response) => {
       res.status(200).send(response);
