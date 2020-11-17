@@ -29,10 +29,8 @@ export default function Dropdown1(props) {
   const onOptionClicked = (value) => () => {
     setSelectedOption(value);
     setIsOpen(false);
-    console.log(selectedOption);
   };
   const { product } = props;
-  // const options = { size: product.size, color: product.color, quantity: product.quantity };
   return (
     <Box>
       <Title>Size</Title>

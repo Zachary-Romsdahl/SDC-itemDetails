@@ -10,7 +10,6 @@ import {
 } from './Dropdown2.style.jsx';
 
 export default function Dropdown2(props) {
-  console.log(props)
   const { color } = props;
   const [isOpen, setIsOpen] = useState(false);
   const [selectedOption, setSelectedOption] = useState(null);
@@ -19,7 +18,6 @@ export default function Dropdown2(props) {
   const onOptionClicked = (value) => () => {
     setSelectedOption(value);
     setIsOpen(false);
-    console.log(selectedOption);
   };
 
   return (

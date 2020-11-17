@@ -10,9 +10,9 @@ const colorLimit = () => {
 };
 
 function productDetails(num) {
-  const idStart = num * 100;
+  const idStart = num * 10000;
   const data = [];
-  for (let i = idStart; i < (idStart + 100000); i += 1) {
+  for (let i = idStart; i < (idStart + 10000); i += 1) {
     data.push({
       // product_id: i,
       item_name: faker.lorem.sentence(),
@@ -22,11 +22,12 @@ function productDetails(num) {
       item_description: faker.lorem.sentences(15),
     });
   }
+  console.log(data.length);
   return data;
 }
 
 async function pushDataIntoDB() {
-  for (let i = 0; i < 100; i += 1) {
+  for (let i = 0; i < 1000; i += 1) {
     const items = productDetails(i);
     console.log('Begin insertion', i);
     await Description.bulkCreate(items);

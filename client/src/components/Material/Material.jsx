@@ -14,7 +14,6 @@ import {
 
 export default class Material extends React.Component {
   executeOnClick(isExpanded) {
-    console.log(isExpanded);
   }
 
   render() {
