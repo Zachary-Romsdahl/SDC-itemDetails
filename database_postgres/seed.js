@@ -10,7 +10,7 @@ const colorLimit = () => {
 };
 
 function productDetails(num) {
-  const idStart = num * 10000
+  const idStart = num * 10000;
   const data = [];
   for (let i = idStart; i < (idStart + 10000); i += 1) {
     data.push({
@@ -22,6 +22,7 @@ function productDetails(num) {
       item_description: faker.lorem.sentences(15),
     });
   }
+  console.log(data.length);
   return data;
 }
 
