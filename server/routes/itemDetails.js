@@ -1,9 +1,9 @@
 const express = require('express');
-const ItemDetailsController = require('../controllers/itemDetails');
+const { ItemDetailsController, Cache } = require('../controllers/itemDetails');
 
 const router = express.Router();
 
-router.get('/:productId', ItemDetailsController.item_details_read);
+router.get('/:productId', Cache.get, ItemDetailsController.item_details_read);
 
 router.post('/', ItemDetailsController.item_details_create);
 

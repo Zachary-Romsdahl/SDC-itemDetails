@@ -1,11 +1,10 @@
 const express = require('express');
-// require('dotenv').config();
 const path = require('path');
 const bodyParser = require('body-parser');
 const axios = require('axios');
 const cors = require('cors');
-const itemDetails = require('./routes/itemDetails');
 
+const itemDetails = require('./routes/itemDetails');
 const app = express();
 
 app.use(cors());

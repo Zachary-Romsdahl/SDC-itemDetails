@@ -43,7 +43,7 @@ export const options = {
 // Get Request
 export default function () {
   const product = Math.floor(Math.random() * 1000000) + 9000000;
-  const res = http.get(`http://127.0.0.1:5000/itemDetails/${product}`);
+  const res = http.get(`http://54.219.91.76/itemDetails/${product}`);
   const result = check(res, {
     'status is 200': (r) => r.status === 200,
   });

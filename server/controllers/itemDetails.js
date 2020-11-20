@@ -1,9 +1,13 @@
 const Descriptions = require('../../database_postgres/descriptions.js');
+const Cache = require('../caching/index.js');
 
-exports.item_details_read = (req, res) => {
+const itemDetails = {};
+
+itemDetails.item_details_read = (req, res) => {
   const id = req.params.productId;
   Descriptions.findOne({ where: { product_id: id } })
     .then((response) => {
+      Cache.set(id, JSON.stringify(response));
       res.status(200).send(response);
     })
     .catch((error) => {
@@ -12,7 +16,7 @@ exports.item_details_read = (req, res) => {
 };
 
 // Creates a new product and sets that product's id to largest productId + 1
-exports.item_details_create = (req, res) => {
+itemDetails.item_details_create = (req, res) => {
   const product = req.body;
   Descriptions.create(product)
     .then((response) => {
@@ -26,13 +30,14 @@ exports.item_details_create = (req, res) => {
 };
 
 // Updates the current product and returns an error if it doesn't exist
-exports.item_details_update = (req, res) => {
+itemDetails.item_details_update = (req, res) => {
   const id = req.params.productId;
   const newData = req.body;
   Descriptions.update(newData, { where: { product_id: id } })
     .then((response) => {
-      console.log(response);
-      res.status(200).send('Successfully updated product');
+      console.log('Successfully Updated:', response);
+      Cache.update(id, newData);
+      res.status(200).send(response);
     })
     .catch((err) => {
       console.log('Error:', err);
@@ -41,13 +46,14 @@ exports.item_details_update = (req, res) => {
 };
 
 // Deletes the product given the id;
-exports.item_details_delete = (req, res) => {
+itemDetails.item_details_delete = (req, res) => {
   const id = req.params.productId;
-  console.log(`CRUD delete${id}`);
+  console.log(`CRUD delete ${id}`);
   Descriptions.destroy({ where: { product_id: id } })
     .then((response) => {
       console.log(response);
       if (response === 1) {
+        Cache.delete(id);
         res.status(200).send(`Successfully deleted product:${id}`);
       } else if (response === 0) {
         res.status(400).send('Couldn\'t find any products with this ID');
@@ -59,3 +65,5 @@ exports.item_details_delete = (req, res) => {
       res.sendStatus(500);
     });
 };
+
+module.exports = { ItemDetailsController: itemDetails, Cache };

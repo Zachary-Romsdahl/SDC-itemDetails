@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "react-dev": "webpack -d --watch",
+    "react-prod": "webpack -p",
     "server-dev": "nodemon server/start.js",
     "cluster-dev": "nodemon server/cluster.js",
     "db:setup": "node database_postgres/seed.js",
@@ -57,6 +58,8 @@
     "react-dom": "^16.13.1",
     "react-is": "^16.13.1",
     "react-show-more-text": "^1.4.4",
+    "redis": "^3.0.2",
+    "redis-cli": "^2.0.0",
     "sequelize": "^6.3.5",
     "styled-components": "^5.1.1",
     "styled-dropdown-component": "^4.0.0",
