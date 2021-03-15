@@ -1,4 +1,4 @@
-#Item Details Service for E-Commerce Application
+Item Details Service for E-Commerce Application
 
 Start server: npm run server-dev
 Bundle files: npm run react-dev
